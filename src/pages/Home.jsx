@@ -7,9 +7,7 @@ const Home = () => {
   const { loading, error, data } = useQuery(SEARCH_REPOSITORIES, {
     variables: { repo: "react" },
   });
-  console.log(error);
-  console.log(data);
-  console.log("env=>" + process.env.REACT_APP_G_TOKEN);
+
   return (
     <Paper>
       <ReposList loading={loading} repositories={data?.search?.edges} />
