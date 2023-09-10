@@ -9,7 +9,7 @@ const Home = () => {
   });
   console.log(error);
   console.log(data);
-  console.log("env=>" + process.env.G_TOKEN);
+  console.log("env=>" + process.env.REACT_APP_G_TOKEN);
   return (
     <Paper>
       <ReposList loading={loading} repositories={data?.search?.edges} />
