@@ -7,6 +7,7 @@ const Home = () => {
   const { loading, error, data } = useQuery(SEARCH_REPOSITORIES, {
     variables: { repo: "react" },
   });
+  console.log(error)
   console.log(data);
   return (
     <Paper>
