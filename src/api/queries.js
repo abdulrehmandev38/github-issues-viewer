@@ -20,6 +20,19 @@ export const SEARCH_REPOSITORIES = gql`
   }
 `;
 
+export const GET_REPO_DETAILS = gql`
+  query GetRepoDetails($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      name
+      owner {
+        login
+      }
+      stargazerCount
+      description
+    }
+  }
+`;
+
 export const GET_ISSUES = gql`
   query GetIssues($owner: String!, $name: String!) {
     repository(owner: $owner, name: $name) {
