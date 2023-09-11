@@ -6,12 +6,35 @@ export const SEARCH_REPOSITORIES = gql`
       edges {
         node {
           ... on Repository {
+            id
             name
             owner {
               login
             }
             stargazerCount
             description
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ISSUES = gql`
+  query GetIssues($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      issues(first: 10) {
+        nodes {
+          title
+          body
+          number
+          state
+          bodyHTML
+          comments {
+            totalCount
+          }
+          author {
+            login
           }
         }
       }
