@@ -13,14 +13,7 @@ const ReposList = ({ repositories, loading }) => {
               return <RepoItemLoading />;
             })
         : repositories?.map((repo) => {
-            return (
-              <RepoItem
-                id={repo.node.id}
-                name={`${repo.node.owner.login}/${repo.node.name}`}
-                stars={repo.node.stargazerCount}
-                description={repo.node.description.slice(0, 50) + "..."}
-              />
-            );
+            return <RepoItem repo={repo.node} />;
           })}
     </div>
   );

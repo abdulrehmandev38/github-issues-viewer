@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Star } from "./Icons";
+import { useStateContext } from "../context";
 
 export const RepoItemLoading = () => {
   return (
@@ -15,9 +16,12 @@ export const RepoItemLoading = () => {
   );
 };
 
-const RepoItem = ({ id, name, stars, description }) => {
+const RepoItem = ({ repo }) => {
+  const { setRepo } = useStateContext();
+  const name = `${repo.owner.login}/${repo.name}`;
   return (
     <Link
+      onClick={() => setRepo(repo)}
       to={"/repo/" + name.replace("/", "-")}
       className="flex group items-center border-[1px] border-gray-500  hover:border-slate-700 justify-between w-[600px] max-sm:w-[400px] md:w-[800px] px-[15px] py-[8px] hover:bg-slate-700 rounded-md hover:shadow-lg cursor-pointer"
     >
@@ -25,11 +29,17 @@ const RepoItem = ({ id, name, stars, description }) => {
         <p className="group-hover:underline text-blue-400 cursor-pointer text-[20px] font-bold">
           {name}
         </p>
-        <p className="text-gray-100">{description}</p>
+        <p className="text-gray-100">
+          {repo.description.length > 50
+            ? repo.description.slice(0, 50) + "..."
+            : repo.description}
+        </p>
       </div>
       <div className="flex items-center">
-        <p className="text-white font-bold text-[20px] mr-2">{stars}</p>
         <Star />
+        <p className="text-white font-bold text-[15px] ml-2">
+          {repo.stargazerCount}
+        </p>
       </div>
     </Link>
   );
