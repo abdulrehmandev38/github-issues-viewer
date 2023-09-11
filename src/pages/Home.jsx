@@ -7,7 +7,6 @@ const Home = () => {
   const { loading, error, data } = useQuery(SEARCH_REPOSITORIES, {
     variables: { repo: "react" },
   });
-
   return (
     <Paper>
       <ReposList loading={loading} repositories={data?.search?.edges} />
