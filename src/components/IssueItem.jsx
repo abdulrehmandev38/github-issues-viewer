@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import { Comment, Error } from "./Icons";
 
-const IssueItem = ({ title, description, comments }) => {
+const IssueItem = ({ state, title, description, comments, number }) => {
   return (
     <Link
-      to={"/repo/5/issue/5"}
+      to={`/repo/${5}/issue/${number}`}
       className="px-2 py-4 border-2 cursor-pointer border-slate-400 hover:bg-slate-800 flex items-center rounded-md w-[700px] justify-between"
     >
       <div className="flex gap-4 items-center">
-        <Error className="w-10 h-10 text-red-500" />
+        <Error
+          className={`w-9 h-9 ${
+            state === "CLOSED" ? "text-red-500" : "text-green-500"
+          }`}
+        />
         <div>
-          <p className="text-xl text-white font-bold">{title}</p>
+          <div className="flex items-center">
+            <p className="text-xl text-white font-bold">{title}</p>
+            <p className="text-xl text-gray-400 font-bold ml-2">#{number}</p>
+          </div>
           <p className="text-gray-300 mt-1">{description} </p>
         </div>
       </div>
