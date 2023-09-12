@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Star } from "./Icons";
-import { useStateContext } from "../context";
 
 export const RepoItemLoading = () => {
   return (
@@ -17,11 +16,9 @@ export const RepoItemLoading = () => {
 };
 
 const RepoItem = ({ repo }) => {
-  const { setRepo } = useStateContext();
   const name = `${repo.owner.login}/${repo.name}`;
   return (
     <Link
-      onClick={() => setRepo(repo)}
       to={"/repo/" + name.replace("/", "-")}
       className="flex group items-center border-[1px] border-gray-500  hover:border-slate-700 justify-between w-[600px] max-sm:w-[400px] md:w-[800px] px-[15px] py-[8px] hover:bg-slate-700 rounded-md hover:shadow-lg cursor-pointer"
     >
