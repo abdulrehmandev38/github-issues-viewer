@@ -1,4 +1,3 @@
-import { Error } from "./Icons";
 import IssueItem, { IssueItemLoading } from "./IssueItem";
 
 const IssuesList = ({ loading, issues }) => {
