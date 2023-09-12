@@ -54,3 +54,30 @@ export const GET_ISSUES = gql`
     }
   }
 `;
+
+export const GET_ISSUE_DETAILS = gql`
+  query GetIssue($owner: String!, $name: String!, $number: Int!) {
+    repository(owner: $owner, name: $name) {
+      issue(number: $number) {
+        title
+        body
+        state
+        author {
+          login
+          avatarUrl
+        }
+        comments(first: 10) {
+          nodes {
+            author {
+              login
+              avatarUrl
+            }
+            body
+            createdAt
+            updatedAt
+          }
+        }
+      }
+    }
+  }
+`;
