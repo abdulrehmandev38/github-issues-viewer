@@ -30,7 +30,7 @@ const RepoItem = ({ repo }) => {
           {name}
         </p>
         <p className="text-gray-100">
-          {repo.description.length > 50
+          {repo.description?.length > 50
             ? repo.description.slice(0, 50) + "..."
             : repo.description}
         </p>
