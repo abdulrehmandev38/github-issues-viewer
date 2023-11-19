@@ -34,9 +34,9 @@ export const GET_REPO_DETAILS = gql`
 `;
 
 export const GET_ISSUES = gql`
-  query GetIssues($owner: String!, $name: String!) {
+  query GetIssues($owner: String!, $name: String!, $state: [IssueState!]) {
     repository(owner: $owner, name: $name) {
-      issues(first: 10) {
+      issues(first: 10, states: $state) {
         nodes {
           title
           body
