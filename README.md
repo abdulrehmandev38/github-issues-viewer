@@ -1,4 +1,4 @@
-# GitHub Issues Viewer
+# GitHub Issues Viewer 🚀
 
 Welcome to the GitHub Issues Viewer! This simple React application allows you to explore both opened and closed issues for any GitHub repository using the GitHub GraphQL API.
 
@@ -66,4 +66,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests to h
 License
 This project is licensed under the MIT License.
 
-Happy coding!
+Happy coding! 🚀✨
